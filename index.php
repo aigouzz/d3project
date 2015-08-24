@@ -24,7 +24,7 @@
 <script>
     var dataset = [90,29,48,56,100,105,102,45,87,25];
     var wrap = d3.select('#wrap');
-    var rectHeight = 20;
+    var rectHeight = 30;
     wrap.append('svg')
         .attr('width',400)
         .attr('height',400);
@@ -34,13 +34,15 @@
         .data(dataset)
         .enter()
         .append('rect')
-        .attr('x',20)
         .attr('y', function (d,i) {
-            return i*rectHeight;
+            return 340-d;
         })
-        .attr('width', function (d) {
+        .attr('x', function (d,i) {
+            return i*rectHeight + 40;
+        })
+        .attr('height', function (d) {
             return d;
         })
-        .attr('height',rectHeight-2);
+        .attr('width',rectHeight-2);
 </script>
 </html>
